@@ -3,12 +3,12 @@ import css from './ContactList.module.css';
 import { useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/selectors';
 
-export const ContactList = ({  onRemoveContacts }) => {
-  const visibleContacts = useSelector(selectVisibleContacts);
-  
+export const ContactList = ({ contacts, onRemoveContacts }) => {
+  // const visibleContacts = useSelector(selectVisibleContacts);
+
   return (
     <ul>
-      {visibleContacts.map(contact => (
+      {contacts.map(contact => (
         <li key={contact.id} className={css.item}>
           <p>
             {contact.name}: {contact.number}

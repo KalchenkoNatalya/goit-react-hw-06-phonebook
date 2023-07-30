@@ -1,6 +1,6 @@
 import css from './App.module.css';
 import { FormAddContacts } from './FormAddContacts/FormAddContacts';
-import {  useEffect  } from 'react';
+// import {  useEffect  } from 'react';
 import { Filter } from './Filter/Filter';
 // import { nanoid } from 'nanoid';
 import { ContactList } from './ContactList/ContactList';
@@ -15,18 +15,18 @@ export const App = () => {
   const dispatch = useDispatch();
  
 
-  useEffect(() => {
-    const stringifiedContacts = localStorage.getItem('contacts');
-    const parcedContacts = JSON.parse(stringifiedContacts);
-    if (parcedContacts && parcedContacts.length > 0) {
-      dispatch(addContacts(parcedContacts));
-    }
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const stringifiedContacts = localStorage.getItem('persist:contact');
+  //   const parcedContacts = JSON.parse(stringifiedContacts);
+  //   if (parcedContacts && parcedContacts.length > 0) {
+  //     dispatch(addContacts(parcedContacts));
+  //   }
+  // }, [dispatch]);
 
-  useEffect(() => {
-    const stringifiedContacts = JSON.stringify(contacts);
-    localStorage.setItem('contacts', stringifiedContacts);
-  }, [contacts]);
+  // useEffect(() => {
+  //   const stringifiedContacts = JSON.stringify(contacts);
+  //   localStorage.setItem('contacts', stringifiedContacts);
+  // }, [contacts]);
 
 
   
@@ -38,7 +38,7 @@ export const App = () => {
       <FormAddContacts addContacts={addContacts} />
 
       <h2>Find contacts by name</h2>
-      <Filter filter={filter} filterChange={(value) => dispatch(filterChange(value))} />
+      <Filter filter={filter} filterChange={() => dispatch(filterChange())} />
 
       <h2>Contacts</h2>
       {filter === '' ? (
