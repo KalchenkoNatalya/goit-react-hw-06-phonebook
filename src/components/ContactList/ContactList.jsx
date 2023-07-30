@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
-import { useSelector } from 'react-redux';
-import { selectVisibleContacts } from 'redux/selectors';
 
 export const ContactList = ({ contacts, onRemoveContacts }) => {
-  // const visibleContacts = useSelector(selectVisibleContacts);
+  
 
   return (
     <ul>
