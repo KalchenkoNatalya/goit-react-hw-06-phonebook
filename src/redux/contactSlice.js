@@ -2,7 +2,6 @@ const { createSlice } = require('@reduxjs/toolkit');
 
 const initialContactsState = {
   contacts: [],
-  filter: '',
 };
 
 const contactsSlice = createSlice({
@@ -11,9 +10,8 @@ const contactsSlice = createSlice({
   reducers: {
     addContacts: (state, action) => {
       state.contacts = [...state.contacts, action.payload];
-      // state.contacts = action.payload
     },
-    onRemoveContacts: (state, action) => {
+    deleteContacts: (state, action) => {
       state.contacts = state.contacts.filter(
         contact => contact.id !== action.payload
       );
@@ -21,18 +19,8 @@ const contactsSlice = createSlice({
   },
 });
 
-const filterSlice = createSlice({
-  name: 'filterState',
-  initialState: initialContactsState,
-  reducers: {
-    filterChange: (state, action) => {
-      state.filter = action.payload;
-    },
-  },
-});
 //генеруємо екшени
-export const { addContacts, onRemoveContacts } = contactsSlice.actions;
-export const { filterChange } = filterSlice.actions;
+export const { addContacts, deleteContacts } = contactsSlice.actions;
+
 // генеруємо "цех" - редьюсер
 export const contactsReducer = contactsSlice.reducer;
-export const filterReducer = filterSlice.reducer;

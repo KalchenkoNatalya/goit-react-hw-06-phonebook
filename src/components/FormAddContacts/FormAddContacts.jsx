@@ -27,7 +27,7 @@ export const FormAddContacts = ({ addContacts }) => {
     } else {
       dispatch(addContacts({ id: nanoid(), name: name, number: number }));
     }
-    // addContacts(name, number);
+
     setName('');
     setNumber('');
   };

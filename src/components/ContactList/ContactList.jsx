@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 
 export const ContactList = ({ contacts, onRemoveContacts }) => {
-  
-
   return (
     <ul>
       {contacts.map(contact => (
@@ -22,7 +20,6 @@ export const ContactList = ({ contacts, onRemoveContacts }) => {
     </ul>
   );
 };
-
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
